@@ -9,4 +9,24 @@ import { HttpClient } from '@angular/common/http';
 export class OfferService {
 
   constructor( private http: HttpClient, private spinner: NgxSpinnerService, private router: Router, private toaster: ToastrService) { }
+
+  MainOffers: any = [];
+  GetOffersForMain() {
+    return new Promise<void>((resolve, reject) => {
+      this.spinner.show();
+      this.http.get("https://localhost:44397/api/Offer/GetLoaneeMain").subscribe(
+        (res) => {
+          this.MainOffers = res
+          this.spinner.hide();
+          resolve()
+        },
+        (err) => {
+          console.log(err);
+          this.spinner.hide();
+        }
+      )
+    })
+  }
+
+
 }
