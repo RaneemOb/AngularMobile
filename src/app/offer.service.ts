@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,7 @@ export class OfferService {
       this.http.get("https://localhost:44397/api/Offer/GetLoaneeMain").subscribe(
         (res) => {
           this.MainOffers = res
+          debugger
           this.spinner.hide();
           resolve()
         },

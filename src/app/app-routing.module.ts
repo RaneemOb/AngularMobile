@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -15,11 +16,16 @@ const routes: Routes = [
     path: 'Login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginModule)
   },
+  {
+    path: 'Shared',
+    loadChildren: () => import('./shared/shared.module').then( m => m.SharedModule)
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+    HttpClientModule
   ],
   exports: [RouterModule]
 })
