@@ -12,10 +12,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  {
-    path: 'Login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginModule)
-  },
+ 
   {
     path: 'Shared',
     loadChildren: () => import('./shared/shared.module').then( m => m.SharedModule)
