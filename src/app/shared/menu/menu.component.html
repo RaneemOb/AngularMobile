@@ -1,11 +1,8 @@
 
-  <ion-avatar slot="start" (click)="presentPopover($event)">
+<!-- <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+  <ion-avatar slot="start" (click)="presentPopover($event)" style="margin-left: 15px; margin-top: 10px;" >
     <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-  </ion-avatar>
-
-
-
-<ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+  </ion-avatar> 
   <ng-template>
    
       <ul style="list-style-type: none;">
@@ -17,4 +14,23 @@
       </ul>
    
   </ng-template>
-</ion-popover>
+</ion-popover>  -->
+<!-- <ion-button id="popover-button">Open Menu</ion-button> -->
+
+<ion-fab slot="start" vertical="top" horizontal="start"  >
+  <ion-fab-button>
+   
+    <ion-icon name="person-circle"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="bottom">
+    <ion-fab-button>
+      <ion-icon name="document"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="color-palette"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button>
+      <ion-icon name="globe"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>

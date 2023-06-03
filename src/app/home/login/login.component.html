@@ -1,5 +1,5 @@
 
-<ion-content>
+<!-- <ion-content>
   <ion-grid class="ion-no-padding">
     <ion-row justify-content-center align-items-center style="height: 100%">
       <ion-col size="12" size-sm="8" size-md="6" size-lg="4">
@@ -13,4 +13,42 @@
   </ion-grid>
 </ion-content>
 <ion-button shape="round" 
-(click)="CheckUser()">Login</ion-button>
+(click)="CheckUser()">Login</ion-button> -->
+
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="container">
+   
+   <div class="title">
+     <span>Welcome to</span>
+     <h2>Neqatcom App</h2>
+   </div>
+
+   <div class="form">
+
+     <div>
+      <form [formGroup]="LoginForm">
+       <ion-item>
+         <ion-icon slot="start" name="person-outline"></ion-icon>
+         <ion-input type="text" formControlName="email" placeholder="Email"></ion-input>
+       </ion-item>
+       <ion-item>
+         <ion-icon slot="start" name="key-outline"></ion-icon>
+         <ion-input type="text" formControlName="password" placeholder="Password"></ion-input>
+       </ion-item>
+</form>
+     </div>
+     <div class="ion-text-center">
+       <!-- <span>Don’t have an account? <a [routerLink]="[ '/register' ]">Sign Up</a></span> -->
+       <ion-button expand="block" (click)="CheckUser()">
+        <div class="btn-container" shape="round" >
+          <span>Sign In</span>
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+        </div>
+      </ion-button>
+     </div>
+   </div>
+  </div>
+</ion-content>
+ 

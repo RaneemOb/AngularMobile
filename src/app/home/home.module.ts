@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
@@ -11,12 +11,15 @@ import { RouterModule,NavigationStart  } from '@angular/router';
 import { MenuComponent } from 'src/app/shared/menu/menu.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MyLoansComponent } from './my-loans/my-loans.component';
+
 
 @NgModule({
     declarations: [HomePage,
-      MainLoaneeComponent
-    ,
-    LoginComponent
+      MainLoaneeComponent,
+      LoginComponent,
+      MyLoansComponent
     ],
     imports: [
         CommonModule,
@@ -26,8 +29,13 @@ import { ReactiveFormsModule } from '@angular/forms';
         SharedModule,
        HttpClientModule,
        RouterModule,
-       ReactiveFormsModule
+       ReactiveFormsModule,
        
+       
+    ]
+    ,
+    schemas:[
+      CUSTOM_ELEMENTS_SCHEMA
     ]
 })
 export class HomePageModule {}

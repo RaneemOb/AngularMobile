@@ -1,3 +1,122 @@
-<p>
-  my-loans works!
-</p>
+<app-menu></app-menu>
+<ion-content>
+ <div *ngFor="let item of loans">
+<ion-card >
+  <ion-card-header>
+  
+    <ion-card-subtitle> {{ item.firstname }}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div class="info" style=" display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;">
+      <div class="label" style=" width: 120px;
+      font-weight: bold;">Loan ID:</div>
+      <div class="value" style=" flex-grow: 1;">{{ item.loanid }}</div>
+    </div>
+    <div class="info" style=" display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;">
+      <div class="label" style=" width: 120px;
+      font-weight: bold;">Loan Status:</div>
+      <div class="value" style=" flex-grow: 1;">{{ Stat[item.loanstatus] }}</div>
+    </div>
+    <div class="info" style=" display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;">
+      <div class="label" style=" width: 120px;
+      font-weight: bold;">Start Date:</div>
+      <div class="value" style=" flex-grow: 1;">{{ item.startdate |slice:0:10}}</div>
+    </div>
+    <button ion-button (click)="toggleShowMore()"  fill="clear" >{{ showMore ? 'Show Less' : 'Show More' }}</button>
+    <div *ngIf="showMore">
+    <div class="info" style=" display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;">
+      <div class="label" style=" width: 120px;
+      font-weight: bold;">End Date:</div>
+      <div class="value" style=" flex-grow: 1;">{{ item.enddate|slice:0:10 }}</div>
+    </div>
+    <div class="info" style=" display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;">
+      <div class="label" style=" width: 120px;
+      font-weight: bold;">Payment Amount :</div>
+      <div class="value" style=" flex-grow: 1;">${{ item.monthlyamount }}</div>
+    </div>
+    </div>
+  </ion-card-content>
+  
+  <ion-button id="popover-button" fill="clear" *ngIf="item.loanstatus!=0">Manage</ion-button>
+  <ion-popover trigger="popover-button" [dismissOnSelect]="true">
+    <ng-template>
+      <ion-content>
+        <ion-list>
+          <ion-item [button]="true" [detail]="false">Report Store</ion-item>
+          <ion-item [button]="true" [detail]="false">Show Payments</ion-item>
+          <ion-item [button]="true" [detail]="false"> Request Postpone</ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+
+  <ion-button fill="clear" *ngIf="item.loanstatus==0">Cancel Request</ion-button>
+
+</ion-card>
+</div>
+</ion-content>
+<div *ngFor="let item of ConfirmationLoans">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Payment Amount: ${{ item.monthlyamount }}</ion-card-title>
+      <ion-card-subtitle> {{ item.firstname }}</ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <div class="info" style=" display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;">
+        <div class="label" style=" width: 120px;
+        font-weight: bold;">Loan ID:</div>
+        <div class="value" style=" flex-grow: 1;">{{ item.loanid }}</div>
+      </div>
+      <div class="info" style=" display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;">
+        <div class="label" style=" width: 120px;
+        font-weight: bold;">Loan Status:</div>
+        <div class="value" style=" flex-grow: 1;">{{ Stat[item.loanstatus] }}</div>
+      </div>
+      <div class="info" style=" display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;">
+        <div class="label" style=" width: 120px;
+        font-weight: bold;">Start Date:</div>
+        <div class="value" style=" flex-grow: 1;">{{ item.startdate |slice:0:10}}</div>
+      </div>
+      <button ion-button (click)="toggleShowMore()"  fill="clear" >{{ showMore ? 'Show Less' : 'Show More' }}</button>
+      <div *ngIf="showMore">
+      <div class="info" style=" display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;">
+        <div class="label" style=" width: 120px;
+        font-weight: bold;">End Date:</div>
+        <div class="value" style=" flex-grow: 1;">{{ item.enddate|slice:0:10 }}</div>
+      </div>
+      <div class="info" style=" display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;">
+        <div class="label" style=" width: 120px;
+        font-weight: bold;">Payment Amount :</div>
+        <div class="value" style=" flex-grow: 1;">${{ item.monthlyamount }}</div>
+      </div>
+      </div>
+    </ion-card-content>
+  
+    <ion-button fill="clear" *ngIf="item.loanstatus!=0">Report Store</ion-button>
+
+  </ion-card>
+  </div> 
+
+  

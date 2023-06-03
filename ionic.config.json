@@ -1,5 +1,7 @@
 {
   "name": "AngularMobile",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -57,7 +57,7 @@ export class LoginService {
               localStorage.setItem('LoaneeLastName', JSON.stringify(data.Lastname))
               localStorage.setItem('LoaneeEmail', JSON.stringify(data.Email))
               localStorage.setItem('LoaneeID', JSON.parse(data.Loaneeid))
-              this.router.navigate(['home/main'])
+              this.router.navigate(['home/My-loans'])
             }
             // if(data.Role == "Loanee"){
             //   this.router.navigate(['loanee/'])
